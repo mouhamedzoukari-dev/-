@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>NOVA — وكالة تصميم وتطوير</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Cairo,sans-serif;
+  background:#070b14;color:#fff;line-height:1.7
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:20;
+  padding:18px 0;background:rgba(7,11,20,.75);
+  backdrop-filter:blur(16px);border-bottom:1px solid #ffffff12
+}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:25px;font-weight:800;color:#65e4ff}
+.links{display:flex;gap:28px;color:#b9c2d5}
+.links a:hover{color:#65e4ff}
+.btn{
+  display:inline-block;padding:12px 22px;border-radius:12px;
+  background:linear-gradient(135deg,#65e4ff,#8b5cf6);
+  font-weight:700;transition:.3s
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px #65e4ff25}
+
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  position:relative;overflow:hidden;padding-top:80px
+}
+.hero:before{
+  content:"";position:absolute;width:500px;height:500px;
+  background:#315cff30;filter:blur(100px);border-radius:50%;
+  top:10%;right:-150px
+}
+.hero:after{
+  content:"";position:absolute;width:400px;height:400px;
+  background:#00d9ff20;filter:blur(100px);border-radius:50%;
+  bottom:-150px;left:-100px
+}
+.hero-content{position:relative;z-index:2;max-width:760px}
+.badge{
+  display:inline-block;padding:7px 14px;border:1px solid #65e4ff40;
+  background:#65e4ff0d;color:#65e4ff;border-radius:30px;margin-bottom:20px
+}
+h1{font-size:clamp(42px,7vw,76px);line-height:1.15;margin-bottom:22px}
+.gradient{
+  background:linear-gradient(90deg,#65e4ff,#a78bfa);
+  -webkit-background-clip:text;color:transparent
+}
+.hero p{font-size:19px;color:#aab4c8;max-width:650px;margin-bottom:32px}
+.buttons{display:flex;gap:14px;flex-wrap:wrap}
+.btn2{
+  padding:12px 22px;border:1px solid #ffffff20;border-radius:12px;
+  color:#dce3ef;background:#ffffff08
+}
+
+section{padding:100px 0}
+.section-title{text-align:center;margin-bottom:55px}
+.section-title h2{font-size:38px}
+.section-title p{color:#8994a9;margin-top:8px}
+
+.cards{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px
+}
+.card{
+  padding:30px;border:1px solid #ffffff10;border-radius:20px;
+  background:linear-gradient(145deg,#101725,#0a0f1b);
+  transition:.35s
+}
+.card:hover{transform:translateY(-8px);border-color:#65e4ff40}
+.icon{
+  width:55px;height:55px;display:grid;place-items:center;
+  border-radius:15px;background:#65e4ff12;font-size:25px;
+  margin-bottom:18px
+}
+.card h3{margin-bottom:10px;font-size:21px}
+.card p{color:#8994a9}
+
+.projects{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px
+}
+.project{
+  min-height:260px;border-radius:20px;padding:25px;
+  display:flex;flex-direction:column;justify-content:end;
+  overflow:hidden;position:relative;
+  background:linear-gradient(135deg,#18264b,#101827)
+}
+.project:nth-child(2){background:linear-gradient(135deg,#39205a,#101827)}
+.project:nth-child(3){background:linear-gradient(135deg,#06434d,#101827)}
+.project:before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 80% 20%,#ffffff18,transparent 35%)
+}
+.project>*{position:relative}
+.tag{font-size:13px;color:#65e4ff;margin-bottom:6px}
+
+.about{
+  display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center
+}
+.about-box{
+  padding:35px;border-radius:25px;
+  background:linear-gradient(145deg,#111a2b,#080d17);
+  border:1px solid #ffffff10
+}
+.about p{color:#a0aabd;margin:15px 0}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-top:25px}
+.stat{padding:20px;background:#ffffff06;border-radius:15px}
+.stat strong{display:block;font-size:28px;color:#65e4ff}
+
+.contact-box{
+  text-align:center;padding:60px 20px;border-radius:25px;
+  background:linear-gradient(135deg,#111d35,#15102b);
+  border:1px solid #ffffff10
+}
+.contact-box h2{font-size:38px;margin-bottom:12px}
+.contact-box p{color:#9ca8bc;margin-bottom:25px}
+
+footer{
+  padding:30px 0;border-top:1px solid #ffffff0d;
+  color:#737f94;text-align:center
+}
+
+@media(max-width:800px){
+ .links{display:none}
+ .cards,.projects,.about{grid-template-columns:1fr}
+ section{padding:75px 0}
+ h1{font-size:45px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="container nav">
+  <div class="logo">NOVA.</div>
+  <div class="links">
+    <a href="#services">الخدمات</a>
+    <a href="#projects">أعمالنا</a>
+    <a href="#about">من نحن</a>
+    <a href="#contact">تواصل</a>
+  </div>
+  <a href="#contact" class="btn">ابدأ مشروعك</a>
+</div>
+</nav>
+
+<header class="hero">
+<div class="container hero-content">
+  <span class="badge">وكالة رقمية متخصصة 🚀</span>
+  <h1>نبني مواقع<br><span class="gradient">تصنع الفرق.</span></h1>
+  <p>
+    نصمم ونطور مواقع ويب عصرية وسريعة تساعد الشركات والعلامات التجارية
+    على بناء حضور رقمي قوي وتحويل الزوار إلى عملاء.
+  </p>
+  <div class="buttons">
+    <a href="#projects" class="btn">شاهد أعمالنا</a>
+    <a href="#contact" class="btn2">تواصل معنا</a>
+  </div>
+</div>
+</header>
+
+<section id="services">
+<div class="container">
+<div class="section-title">
+<h2>ماذا نقدم؟</h2>
+<p>حلول رقمية مصممة لتحقيق نتائج حقيقية</p>
+</div>
+
+<div class="cards">
+<div class="card">
+<div class="icon">🎨</div>
+<h3>تصميم UI/UX</h3>
+<p>واجهات عصرية وسهلة الاستخدام تعكس هوية علامتك التجارية.</p>
+</div>
+
+<div class="card">
+<div class="icon">💻</div>
+<h3>تطوير المواقع</h3>
+<p>مواقع سريعة ومتجاوبة تعمل بكفاءة على الهاتف والكمبيوتر.</p>
+</div>
+
+<div class="card">
+<div class="icon">⚡</div>
+<h3>تحسين الأداء</h3>
+<p>تحسين السرعة وتجربة المستخدم لمحركات البحث والأجهزة المختلفة.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="projects">
+<div class="container">
+<div class="section-title">
+<h2>أعمالنا</h2>
+<p>نماذج من المشاريع التي يمكننا تنفيذها</p>
+</div>
+
+<div class="projects">
+<div class="project">
+<span class="tag">E-Commerce</span>
+<h3>متجر إلكتروني حديث</h3>
+</div>
+
+<div class="project">
+<span class="tag">Corporate</span>
+<h3>موقع شركة تقنية</h3>
+</div>
+
+<div class="project">
+<span class="tag">Portfolio</span>
+<h3>منصة شخصية احترافية</h3>
+</div>
+</div>
+</div>
+</section>
+
+<section id="about">
+<div class="container about">
+<div>
+<span class="badge">لماذا NOVA؟</span>
+<h2 style="font-size:40px">فكرة قوية تستحق<br><span class="gradient">موقعاً قوياً.</span></h2>
+<p style="color:#9ca8bc;margin-top:18px">
+نحوّل الأفكار إلى تجارب رقمية احترافية تجمع بين التصميم،
+الأداء وسهولة الاستخدام.
+</p>
+</div>
+
+<div class="about-box">
+<h3>أرقامنا</h3>
+<div class="stats">
+<div class="stat"><strong>50+</strong>مشروع</div>
+<div class="stat"><strong>98%</strong>رضا العملاء</div>
+<div class="stat"><strong>24/7</strong>دعم</div>
+<div class="stat"><strong>3+</strong>سنوات خبرة</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+<div class="contact-box">
+<h2>لنبنِ شيئاً رائعاً.</h2>
+<p>لديك فكرة؟ دعنا نحولها إلى مشروع حقيقي.</p>
+<a href="mailto:hello@example.com" class="btn">تواصل معنا الآن</a>
+</div>
+</div>
+</section>
+
+<footer>
+© 2026 NOVA — جميع الحقوق محفوظة
+</footer>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+ a.addEventListener('click',e=>{
+  e.preventDefault();
+  document.querySelector(a.getAttribute('href'))
+  ?.scrollIntoView({behavior:'smooth'});
+ });
+});
+</script>
+
+</body>
+</html>
